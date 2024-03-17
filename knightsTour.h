@@ -12,9 +12,9 @@ struct Location {
 };
 
 /**
- * This function initialises a N*N chess board
- * @param board 2D Array of Location structs
- * @param N size of a board
+     * This function initialises a N*N chess board
+     * @param board 2D Array of Location structs
+     * @param N size of a board
  */
 void initBoard(Location ***board, int N);
 
