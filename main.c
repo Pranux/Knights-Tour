@@ -1,17 +1,26 @@
 #include <stdio.h>
 #include "knightsTour.h"
-#define N 8
+#define N 5
 
 int main(void) {
     Location **board;
     initBoard(&board, N);
+    Location current = board[0][0];
+    int iteration = 0;
 
-    for(int i = 0; i < N; ++i) {
-        for(int j = 0; j < N; ++j) {
-            printf("(%d; %d), ", board[i][j].x, board[i][j].y);
-        }
-        printf("\n");
+    printf("Moving pattern:\n");
+
+    while(!finished(board, N)) {
+        ++iteration;
+        findValidSquares(board, current, N);
+        move(board, &current);
+
+        if(iteration % 2 == 1)
+            printf("(%d; %d)\n", current.y, current.x);
     }
+
+    finalMove(board, &current);
+    printf("(%d; %d)\n", current.y, current.x);
 
     freeBoard(&board, N);
     return 0;
