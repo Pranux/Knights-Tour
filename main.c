@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "knightsTour.h"
-#define N 5
+#define N 8
 
 int main(void) {
     Location **board;
